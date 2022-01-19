@@ -60,13 +60,13 @@ class ApiServiceHelper {
         } else {
           if (e.type == DioErrorType.receiveTimeout ||
               e.type == DioErrorType.connectTimeout) {
-            onFailure({"error": Constants.TIMEOUT, "code": 408});
+            onFailure({"error": Constants.TIMEOUT}, 408);
           } else {
-            onFailure({"error": Constants.ERROR_SERVER, "code": 500});
+            onFailure({"error": Constants.ERROR_SERVER}, 500);
           }
         }
       } catch (e) {
-        onFailure({"error": "Method Not Valid", "code": 403});
+        onFailure({"error": "Method Not Allowed"}, 403);
       }
     } else {
       onNoInternetConnection();

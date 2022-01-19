@@ -33,7 +33,9 @@ class _CustomLoaderState extends State<CustomLoader> {
             SizedBox(
               height: size.getWidthPx(35),
               width: size.getWidthPx(35),
-              child: const CircularProgressIndicator(),
+              child: const CircularProgressIndicator(
+                color: Color(0xFF0D47A1),
+              ),
             ),
             SizedBox(
               width: size.getWidthPx(8),

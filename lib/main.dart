@@ -24,8 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Transisi-Test Flutter Dev',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blueAccent,
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue[900],
       ),
       home: const SplashScreen(),
     );

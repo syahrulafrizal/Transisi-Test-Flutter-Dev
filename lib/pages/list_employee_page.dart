@@ -1,20 +1,20 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transisi/api/detail_employee_api_listener.dart';
-import 'package:transisi/api/detail_employee_api_services%20copy.dart';
+import 'package:transisi/api/detail_employee_api_services.dart';
 import 'package:transisi/api/list_employee_api_listener.dart';
 import 'package:transisi/api/list_employee_api_services.dart';
-import 'package:transisi/componets/CustomDialogInformation.dart';
-import 'package:transisi/componets/CustomDialogQuestion.dart';
-import 'package:transisi/componets/CustomLoader.dart';
+import 'package:transisi/componets/custom_dialog_information.dart';
+import 'package:transisi/componets/custom_dialog_question.dart';
+import 'package:transisi/componets/custom_loader.dart';
 import 'package:transisi/helper/constants.dart';
 import 'package:transisi/helper/my_helper.dart';
 import 'package:transisi/helper/screen.dart';
+import 'package:transisi/pages/create_employee_page.dart';
 import 'package:transisi/pages/detail_employe_page.dart';
 
 import 'login_page.dart';
@@ -91,6 +91,7 @@ class _ListEmployeePageState extends State<ListEmployeePage>
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: const Color(0xFF0D47A1),
         title: const Text("Karyawan"),
         actions: [
           IconButton(
@@ -237,8 +238,8 @@ class _ListEmployeePageState extends State<ListEmployeePage>
       children: <Widget>[
         Image.asset(
           (errorType == Constants.ERROR_SERVER_API)
-              ? 'assets/images/respons-error.png'
-              : 'assets/images/no-connection.png',
+              ? 'assets/respons-error.png'
+              : 'assets/no-connection.png',
           width: size.getWidthPx(150),
           height: size.getWidthPx(150),
           fit: BoxFit.fill,
@@ -258,18 +259,13 @@ class _ListEmployeePageState extends State<ListEmployeePage>
           ),
         ),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            onRefresh();
+          },
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [
-                  Color(0xFFD90000),
-                  Color(0xFF9C0000),
-                ],
-                begin: FractionalOffset.topCenter,
-                end: FractionalOffset.bottomCenter,
-              ),
+              color: Colors.blue[900],
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(100.0),
             ),
@@ -296,7 +292,6 @@ class _ListEmployeePageState extends State<ListEmployeePage>
   contentSuccess() {
     if (responseList.isNotEmpty) {
       return listData();
-      ;
     } else {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -400,7 +395,8 @@ class _ListEmployeePageState extends State<ListEmployeePage>
                               width: size.getWidthPx(10),
                               child: const Center(
                                 child: CircularProgressIndicator(
-                                  strokeWidth: 2.5,
+                                  strokeWidth: 2,
+                                  color: Color(0xFF0D47A1),
                                 ),
                               ),
                             ),
@@ -467,7 +463,14 @@ class _ListEmployeePageState extends State<ListEmployeePage>
     return Visibility(
       visible: !isLoading,
       child: FloatingActionButton(
-        onPressed: () {},
+        backgroundColor: const Color(0xFF0D47A1),
+        onPressed: () {
+          Navigator.of(context).push(
+            MyHelpers.createRouting(
+              const CreateEmployeePage(),
+            ),
+          );
+        },
         tooltip: 'Add',
         child: const Icon(Icons.add),
       ),

@@ -1,11 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:transisi/api/login_api_listener.dart';
 import 'package:transisi/api/login_api_services.dart';
-import 'package:transisi/componets/CustomDialogInformation.dart';
-import 'package:transisi/componets/CustomLoader.dart';
+import 'package:transisi/componets/custom_dialog_information.dart';
+import 'package:transisi/componets/custom_loader.dart';
 import 'package:transisi/helper/constants.dart';
 import 'package:transisi/helper/screen.dart';
 import 'package:transisi/helper/my_helper.dart';
@@ -132,10 +130,10 @@ class _LoginPageState extends State<LoginPage> implements LoginApiListener {
       ),
       child: TextField(
         controller: inputEmail,
-        cursorColor: const Color(0xFF575757),
+        cursorColor: const Color(0xFF0D47A1),
         style: TextStyle(
           fontSize: size.getWidthPx(14),
-          color: const Color(0xFF575757),
+          color: const Color(0xFF0D47A1),
         ),
         autofocus: false,
         keyboardType: TextInputType.emailAddress,
@@ -154,23 +152,17 @@ class _LoginPageState extends State<LoginPage> implements LoginApiListener {
           errorBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
           ),
-          enabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFC4C4C4)),
-          ),
-          disabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFC4C4C4)),
-          ),
           focusedBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFC4C4C4)),
+            borderSide: BorderSide(color: Color(0xFF0D47A1)),
           ),
           labelText: "Email",
           labelStyle: TextStyle(
-            color: const Color(0xFF575757),
+            color: Colors.grey,
             fontSize: size.getWidthPx(14),
           ),
           floatingLabelStyle: TextStyle(
-            color: const Color(0xFF575757),
-            fontWeight: FontWeight.w800,
+            color: const Color(0xFF0D47A1),
+            fontWeight: FontWeight.bold,
             fontSize: size.getWidthPx(14),
           ),
           errorText: !validateEmail ? msgEmail : null,
@@ -194,10 +186,10 @@ class _LoginPageState extends State<LoginPage> implements LoginApiListener {
       child: TextField(
         obscureText: !showPassword,
         controller: inputPassword,
-        cursorColor: const Color(0xFF575757),
+        cursorColor: const Color(0xFF0D47A1),
         style: TextStyle(
           fontSize: size.getWidthPx(14),
-          color: const Color(0xFF575757),
+          color: const Color(0xFF0D47A1),
         ),
         autofocus: false,
         keyboardType: TextInputType.text,
@@ -216,23 +208,17 @@ class _LoginPageState extends State<LoginPage> implements LoginApiListener {
           errorBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
           ),
-          enabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFC4C4C4)),
-          ),
-          disabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFC4C4C4)),
-          ),
           focusedBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFC4C4C4)),
+            borderSide: BorderSide(color: Color(0xFF0D47A1)),
           ),
           labelText: "Password",
           labelStyle: TextStyle(
-            color: const Color(0xFF575757),
+            color: Colors.grey,
             fontSize: size.getWidthPx(14),
           ),
           floatingLabelStyle: TextStyle(
-            color: const Color(0xFF575757),
-            fontWeight: FontWeight.w800,
+            color: const Color(0xFF0D47A1),
+            fontWeight: FontWeight.bold,
             fontSize: size.getWidthPx(14),
           ),
           errorText: !validatePassword ? msgPassword : null,
@@ -248,7 +234,7 @@ class _LoginPageState extends State<LoginPage> implements LoginApiListener {
             },
             child: Icon(
               showPassword ? Icons.visibility_off : Icons.visibility,
-              color: const Color(0xFFC4C4C4),
+              color: const Color(0xFF0D47A1),
             ),
           ),
         ),
@@ -288,12 +274,12 @@ class _LoginPageState extends State<LoginPage> implements LoginApiListener {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: size.getWidthPx(12),
+            fontSize: size.getWidthPx(14),
           ),
         ),
         style: ElevatedButton.styleFrom(
           fixedSize: Size(double.infinity, size.getWidthPx(40)),
-          primary: Colors.blue,
+          primary: Colors.blue[900],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),

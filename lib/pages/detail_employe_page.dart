@@ -24,7 +24,7 @@ class DetailEmployePageState extends State<DetailEmployePage> {
         child: Column(
           children: [
             Container(
-              color: Colors.blue,
+              color: Colors.blue[900],
               width: size.wp(100),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,6 +80,7 @@ class DetailEmployePageState extends State<DetailEmployePage> {
                                 child: const Center(
                                   child: CircularProgressIndicator(
                                     strokeWidth: 2.5,
+                                    color: Color(0xFF0D47A1),
                                   ),
                                 ),
                               ),
@@ -141,9 +142,69 @@ class DetailEmployePageState extends State<DetailEmployePage> {
                     Container(
                       padding: EdgeInsets.all(size.getWidthPx(24)),
                       child: Icon(
+                        MdiIcons.phone,
+                        size: size.getWidthPx(24),
+                        color: Colors.blue[900],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "+62 9302 8849 989",
+                            style: TextStyle(
+                              fontSize: size.getWidthPx(16),
+                              color: Colors.black,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            "Telefone",
+                            style: TextStyle(
+                              fontSize: size.getWidthPx(12),
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(size.getWidthPx(24)),
+                      child: Icon(
+                        MdiIcons.messageText,
+                        size: size.getWidthPx(24),
+                        color: Colors.blue[900],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+              margin: EdgeInsets.only(
+                top: size.getWidthPx(16),
+                left: size.getWidthPx(8),
+                right: size.getWidthPx(8),
+              ),
+              child: SizedBox(
+                width: size.wp(100),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(size.getWidthPx(24)),
+                      child: Icon(
                         MdiIcons.email,
                         size: size.getWidthPx(24),
-                        color: Colors.blue,
+                        color: Colors.blue[900],
                       ),
                     ),
                     Expanded(
@@ -163,6 +224,58 @@ class DetailEmployePageState extends State<DetailEmployePage> {
                           ),
                           Text(
                             "E-mail",
+                            style: TextStyle(
+                              fontSize: size.getWidthPx(12),
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+              margin: EdgeInsets.only(
+                top: size.getWidthPx(16),
+                left: size.getWidthPx(8),
+                right: size.getWidthPx(8),
+              ),
+              child: SizedBox(
+                width: size.wp(100),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(size.getWidthPx(24)),
+                      child: Icon(
+                        MdiIcons.shareVariant,
+                        size: size.getWidthPx(24),
+                        color: Colors.blue[900],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Enviar Contato",
+                            style: TextStyle(
+                              fontSize: size.getWidthPx(16),
+                              color: Colors.black,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            "Compartilhar",
                             style: TextStyle(
                               fontSize: size.getWidthPx(12),
                               color: Colors.grey,
